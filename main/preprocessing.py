@@ -16,12 +16,14 @@ from nltk.corpus import stopwords
 
 
 
-def preprocessing(doc):
+def tok(doc, sw=False):
     tokenized = nltk.word_tokenize(doc)
-    stop_words = set(stopwords.words('english'))  
-    doc = [word for word in tokenized if not word in stop_words]  
+    if sw == True:
+        stop_words = set(stopwords.words('english'))  
+        doc = [word for word in tokenized if not word in stop_words]  
+        return doc
+    else:
+        doc = [word for word in tokenized]
+        return doc
 
-    return doc
 
-
-print(preprocessing(doc))
