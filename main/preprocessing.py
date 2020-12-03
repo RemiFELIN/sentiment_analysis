@@ -26,4 +26,10 @@ def tok(doc, sw=False):
         doc = [word for word in tokenized]
         return doc
 
+def pos_tag(doc):
+    doc = nltk.pos_tag(doc)
+    return doc
 
+doc='roses are red'
+doc = tok(doc)
+doc = pos_tag(doc)
