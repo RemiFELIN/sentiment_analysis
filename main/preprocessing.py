@@ -5,7 +5,8 @@ import nltk
 from nltk.corpus import stopwords
 from scikit_learn import preprocessing
 from nltk.stem import PorterStemmer
-import heapq
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 
 def tok(doc, sw=False):
@@ -43,3 +44,15 @@ def bow(doc,n):
     df_bow=pd.concat([df['target'],bow], axis=1)
     
     return df_bow
+
+
+def tfidf(doc,n):
+    porter = PorterStemmer()
+    doc=porter.stem(doc)
+    tfidf = TfidfVectorizer()
+    tfidf_df = tfidf.fit_transform(doc)
+    tfidf_df = tfidf_df.toarray()
+    tfidf_df= pd.DataFrame(tfidf_df)
+    df_tfidf=pd.concat([df['target'],tfidf_df], axis=1)
+    
+    return df_tfidf
