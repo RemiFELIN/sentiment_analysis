@@ -1,9 +1,11 @@
-# 1 - Lire les fichiers XML
-# 2 - Identifier les noms (fajitas, salad, ...) via NLTK avec NER
-# 3 - relevé le sens de la phrase avec l'adjectif ou l'état de la personne
-# 4 - Réseaux de neurones
-# 5 - Evaluation
-# 6 - C'est bieng !
+import pipeline
+
+RESTAURANTS_TRAIN_PATH = "/data/Restaurants_Train.xml"
+RESTAURANTS_TEST_PATH = "/data/Restaurants_Test_Gold.xml"
+LAPTOP_TRAIN_PATH = "/data/Laptop_Train.xml"
+LAPTOP_TEST_PATH = "/data/Laptop_Test_Gold.xml"
 
 if __name__ == '__main__':
-    print("Hello !")
+    # On va exécuter notre pipeline sur les différents jeu de données fournis au format xml
+    pipeline.create_pipeline("RESTAURANTS", RESTAURANTS_TRAIN_PATH, RESTAURANTS_TEST_PATH)
+    pipeline.create_pipeline("LAPTOP", LAPTOP_TRAIN_PATH, LAPTOP_TEST_PATH)
