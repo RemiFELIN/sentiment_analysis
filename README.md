@@ -18,3 +18,10 @@ Avec cette pipeline:
 - Nous arrivons à 97.9% en Recall et F-measure, et 98% en Precision.  
 
 Nous affichons aussi l'Accuracy et le MCC (matthews correlation coefficient).  
+
+# Remarque
+
+Notre stratégie qui consiste à ajouter l'aspect term à la fin de la phrase, avant d'appeler notre fonction bag of word, améliore considérablement nos résultats. On émet l'hyopthèse suivante :
+  - On suppose que cette stratégie génère une forme d'overfitting et donc altère nos résultats de manière significative
+  
+ A cet effet, nous avons décidé de réaliser une seconde version de nos travaux en ne procédent pas à l'ajout de l'aspect term à la fin de la phrase.
