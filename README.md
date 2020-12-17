@@ -29,13 +29,13 @@ Notre stratégie qui consiste à ajouter l'aspect term à la fin de la phrase, a
  Avec cette pipeline (v2), nous avons les résultats suivants:  
  - pour le fichier test de restaurant:
  >Accuracy: 0.90625 
-MCC: 0.7862193762719255 
-Precision: 0.9050611882076774 
-Recall: 0.90625 
-F-measure: 0.9042028282136195
+MCC: 0.7862193762719255  
+Precision: 0.9050611882076774  
+Recall: 0.90625  
+F-measure: 0.9042028282136195  
 - pour le fichier test de laptop:
-> Accuracy: 0.9591836734693877 
-MCC: 0.9243169000478679 
-Precision: 0.9618169848584595 
-Recall: 0.9591836734693877 
-F-measure: 0.9580770557070755
+> Accuracy: 0.9591836734693877  
+MCC: 0.9243169000478679  
+Precision: 0.9618169848584595  
+Recall: 0.9591836734693877  
+F-measure: 0.9580770557070755  
