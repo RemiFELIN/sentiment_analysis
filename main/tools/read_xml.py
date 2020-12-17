@@ -2,7 +2,7 @@
 import xml.etree.ElementTree as ET
 
 
-def get_elem_from_restaurants_data(path):
+def get_elem_from_file_data(path):
     # On crée notre dataset
     dataset = []
     # Structure : ["text", "aspectTerm", "aspectCategory"]
@@ -11,7 +11,7 @@ def get_elem_from_restaurants_data(path):
     root = data.getroot()
     for node in root.iter('sentence'):
         # On stock les 'aspectTerm' et 'aspectCategory'
-        aspectTerms = []
+        # aspectTerms = []
         # Structure : ["term", "polarity"]
         # print(node)
         # On récupère la phrase :
@@ -21,5 +21,6 @@ def get_elem_from_restaurants_data(path):
             term = aspectTerm.attrib.get('term')
             polarity = aspectTerm.attrib.get('polarity')
             # On push nos données dans notre dataset
-            dataset.append([question, term, polarity])
+            if polarity != 'conflict':
+                dataset.append([question, term, polarity])
     return dataset

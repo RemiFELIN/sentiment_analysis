@@ -19,14 +19,17 @@ nltk.download('stopwords')
 
 
 def tok(doc, sw=False):
-    tokenized = nltk.word_tokenize(doc)
-    if sw:
-        stop_words = set(stopwords.words('english'))
-        doc = [word for word in tokenized if word not in stop_words and word.isalpha()]
-        return doc
-    else:
-        doc = [word for word in tokenized]
-        return doc
+    result = []
+    for line in doc:
+        tokenized = nltk.word_tokenize(line)
+        if sw:
+            stop_words = set(stopwords.words('english'))
+            l = [word for word in tokenized if word not in stop_words and word.isalpha()]
+            result.append(l)
+        else:
+            l = [word for word in tokenized]
+            result.append(l)
+    return result
 
 
 def pos_tag(doc):
@@ -40,10 +43,14 @@ def label_encode(y):
 
 
 def bow(doc, vectorizer=None):
+    doc = tok(doc, sw=True)
     porter = PorterStemmer()
     docs = []
     for d in doc:
-        docs.append(porter.stem(d))
+        li = []
+        for word in d:
+            li.append(porter.stem(word))
+        docs.append(" ".join(li))
     if vectorizer is None:
         vectorizer = CountVectorizer()
         bow = vectorizer.fit_transform(docs)
