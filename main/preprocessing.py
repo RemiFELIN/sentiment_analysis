@@ -32,16 +32,6 @@ def tok(doc, sw=False):
     return result
 
 
-def pos_tag(doc):
-    doc = nltk.pos_tag(doc)
-    return doc
-
-
-def label_encode(y):
-    le = preprocessing.LabelEncoder().fit(y)
-    return le.transform(y)
-
-
 def bow(doc, vectorizer=None):
     doc = tok(doc, sw=True)
     porter = PorterStemmer()
@@ -59,14 +49,3 @@ def bow(doc, vectorizer=None):
     bow = bow.toarray()
     bow = pd.DataFrame(bow)
     return bow, vectorizer
-
-
-def tfidf(doc):
-    porter = PorterStemmer()
-    doc = porter.stem(doc)
-    tfidf = TfidfVectorizer()
-    tfidf_df = tfidf.fit_transform(doc)
-    tfidf_df = tfidf_df.toarray()
-    tfidf_df = pd.DataFrame(tfidf_df)
-    df_tfidf = pd.concat([df['target'], tfidf_df], axis=1)
-    return df_tfidf

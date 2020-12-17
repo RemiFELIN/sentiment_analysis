@@ -10,7 +10,7 @@ if __name__ == '__main__':
     pipeline.create_pipeline_v1("RESTAURANTS", RESTAURANTS_TRAIN_PATH, RESTAURANTS_TEST_PATH)
     print("\n\n\n")
     pipeline.create_pipeline_v1("LAPTOP", LAPTOP_TRAIN_PATH, LAPTOP_TEST_PATH)
-    print("\n\n\n\n\n\n")
+    print("\n\n-----------------------------------------------------------------------------------\n\n")
     pipeline.create_pipeline_v2("RESTAURANTS", RESTAURANTS_TRAIN_PATH, RESTAURANTS_TEST_PATH)
     print("\n\n\n")
     pipeline.create_pipeline_v2("LAPTOP", LAPTOP_TRAIN_PATH, LAPTOP_TEST_PATH)

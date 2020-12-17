@@ -3,7 +3,6 @@ from sklearn.metrics import accuracy_score, matthews_corrcoef, precision_score, 
 from nltk.stem import PorterStemmer
 import preprocessing
 import dataset
-import algo
 import pickle
 
 """
@@ -92,9 +91,8 @@ def create_pipeline_v2(name, file_train, file_test):
     X_train = []
     y_train = []
     for line in restaurants:
-        if line[0] not in X_train:
-            X_train.append(line[0])
-            y_train.append(line[2])
+        X_train.append(line[0])
+        y_train.append(line[2])
 
     print("len(y_train):", len(y_train))
     print("list classes:", list(set(y_train)))

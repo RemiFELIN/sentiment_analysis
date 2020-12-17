@@ -1,5 +1,4 @@
 import tools.read_xml as read_xml
-import tools.log as custom_log
 import os
 
 
